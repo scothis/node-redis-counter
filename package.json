@@ -1,0 +1,29 @@
+{
+  "name": "@projectriff/sample-redis-counter",
+  "version": "1.0.0",
+  "description": "projectriff sample: node redis counter",
+  "main": "counter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "projectriff",
+    "riff",
+    "sample",
+    "redis"
+  ],
+  "author": "Scott Andrews",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projectriff-samples/node-redis-counter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/projectriff-samples/node-redis-counter/issues"
+  },
+  "homepage": "https://github.com/projectriff-samples/node-redis-counter#readme"
+}
