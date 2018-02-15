@@ -11,16 +11,16 @@ A sample function that increments a counter in Redis by an amount. The new amoun
 2. Clone this repo
 
    ```bash
-   git clone https://githhub.com/projectriff-samples/node-redis-counter
+   git clone https://github.com/projectriff-samples/node-redis-counter.git
    cd node-redis-counter
    ```
 
-3. Create the function in riff
+3. Initialize the function definition
 
     Since there are multiple files in the directory, we need to tell `riff` which file to use.
 
    ```bash
-   riff create -a package.json
+   riff init -a package.json
    ```
 
 4. Add Redis host
@@ -40,9 +40,9 @@ A sample function that increments a counter in Redis by an amount. The new amoun
            value: 'redis://{your_host}:{your_port}'
    ```
 
-5. Update the function
+5. Deploy the function to riff
 
-   Since we change the Kubernetes description for the function resource, we need to update the deployment.
+   Now that the Kubernetes description for the function resource is complete, we need to update the deployment.
 
    ```bash
    riff update
