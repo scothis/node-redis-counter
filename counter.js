@@ -20,7 +20,7 @@ const { promisify } = require('util');
 const key = process.env.REDIS_KEY || 'riff-node-redis-counter';
 
 // promise wrapped redis client methods
-let incrby, quit;
+let incrby, quit, client;
 
 // the function, called per invocation
 module.exports = amount => incrby(key, amount);
@@ -30,7 +30,7 @@ module.exports.$init = () => {
     // create a promise for all init work
     return new Promise((resolve, reject) => {
         // open the redis connection
-        const client = createClient(process.env.REDIS_URL);
+        client = createClient(process.env.REDIS_URL);
 
         // convert methods that use callbacks natively to use promises
         incrby = promisify(client.incrby).bind(client);
@@ -42,6 +42,9 @@ module.exports.$init = () => {
         client.once('error', reject);
     });
 };
+
+// health check, called periodically
+module.exports.$health = () => client.connected;
 
 // cleanup work, called once
 module.exports.$destroy = () => quit();
